@@ -10,4 +10,4 @@ namespace Snail.Toolkit.AI.Abstractions;
 /// It is designed for multi-turn dialogues where message history, roles (system, user, assistant), 
 /// and potential tool usage are required to maintain context.
 /// </remarks>
-public interface IChatClient : IStreamingAiClient<ChatRequest>;
+public interface IChatClient : IStreamingAiClient<ChatRequest>, Microsoft.Extensions.AI.IChatClient;

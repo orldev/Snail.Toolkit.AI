@@ -12,8 +12,7 @@ namespace Snail.Toolkit.AI.Contracts.Schema;
 /// The raw JSON arguments for the function call. 
 /// These are typically stored as a <see cref="JsonElement"/> and should be deserialized into the expected parameter type.
 /// </param>
-internal record FunctionCall(
+public record FunctionCall(
     [property: JsonPropertyName("name")] string Name,
-    [property: JsonPropertyName("description")] string? Description,
-    [property: JsonPropertyName("arguments")] JsonElement Arguments
-);
+    [property: JsonPropertyName("arguments")] JsonElement Arguments,
+    [property: JsonPropertyName("description")] string? Description = null);

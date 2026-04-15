@@ -11,8 +11,20 @@ namespace Snail.Toolkit.AI.Contracts.Schema;
 /// An optional collection of images associated with the message, typically provided as Base64 encoded strings or URLs. 
 /// Defaults to null.
 /// </param>
+/// <param name="ToolCalls">
+/// An optional collection of tool/function calls that the assistant wants to invoke. 
+/// Typically used when the assistant's role requests to execute one or more functions. 
+/// Defaults to null.
+/// </param>
+/// <param name="ToolCallId">
+/// An optional identifier that links a tool response message back to a specific tool call. 
+/// Required when role is "tool" to indicate which tool call this message is responding to. 
+/// Defaults to null.
+/// </param>
 public record ChatMessage(
     [property: JsonPropertyName("role")] string Role,
     [property: JsonPropertyName("content")] string Content,
-    [property: JsonPropertyName("images")] IEnumerable<string>? Images = null
+    [property: JsonPropertyName("images")] IEnumerable<string>? Images = null,
+    [property: JsonPropertyName("tool_calls")] IEnumerable<ToolCall>? ToolCalls = null,
+    [property: JsonPropertyName("tool_call_id")] string? ToolCallId = null
 );

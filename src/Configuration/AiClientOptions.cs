@@ -23,4 +23,11 @@ public class AiClientOptions
     /// Defaults to 100 seconds.
     /// </summary>
     public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(100);
+    
+
+    /// <summary>
+    /// Gets or sets the default model to use for AI requests when no specific model is specified.
+    /// Defaults to "ollama" when not explicitly configured.
+    /// </summary>
+    public string? DefaultModel { get; set; } = "ollama";
 }
